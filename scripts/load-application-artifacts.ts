@@ -3,12 +3,33 @@ import fetch from 'node-fetch'
 import * as cheerio from 'cheerio'
 
 const dataUrl = 'https://dsp-wiki.com/Items'
-const dataHtmlPath = './src/assets/data.html'
+const htmlArtifactsPath = './src/assets/html'
 const imagesDirectoryPath = './src/assets/images'
 const imageIndexFilePath = './src/lib/images.tsx'
 
+const shouldPurge = false
+
+const clearHtmlArtifacts = () => {
+  if (shouldPurge) {
+    if (fs.existsSync(htmlArtifactsPath)) {
+      fs.rmSync(htmlArtifactsPath, { recursive: true, force: true })
+    }
+  }
+  if (!fs.existsSync(htmlArtifactsPath)) {
+    fs.mkdirSync(htmlArtifactsPath)
+  }
+}
+
+const cleanImages = () => {
+  if (fs.existsSync(imagesDirectoryPath)) {
+    fs.rmSync(imagesDirectoryPath, { recursive: true, force: true })
+  }
+  fs.mkdirSync(imagesDirectoryPath)
+}
+
 const loadHtml = async () => {
   let html: string = ''
+  const dataHtmlPath = `${htmlArtifactsPath}/data.html`
   if (fs.existsSync(dataHtmlPath)) {
     html = fs.readFileSync(dataHtmlPath).toString()
   } else {
@@ -17,13 +38,6 @@ const loadHtml = async () => {
     fs.writeFileSync(dataHtmlPath, html)
   }
   return html
-}
-
-const cleanImagesDirectory = () => {
-  if (fs.existsSync(imagesDirectoryPath)) {
-    fs.rmSync(imagesDirectoryPath, { recursive: true, force: true })
-  }
-  fs.mkdirSync(imagesDirectoryPath)
 }
 
 const downloadImage = async (imageUrl: string) => {
@@ -60,9 +74,13 @@ ${files.map(file => `  ${generateImageName(file)},`).join('\n')}
   )
 }
 
-const loadImages = async () => {
+const loadApplicationArtifacts = async () => {
+  clearHtmlArtifacts()
+  cleanImages()
+
   const html = await loadHtml()
   const $ = cheerio.load(html)
+
   const itemImgTags = $($('tbody')[0]).find('source').toArray()
   const buildingImgTags = $($('tbody')[1]).find('source').toArray()
   const imgTags = [...itemImgTags, ...buildingImgTags]
@@ -72,9 +90,16 @@ const loadImages = async () => {
       const sources = (srcList || '').split(', ')
       return sources[sources.length - 1].split(' ')[0]
     })
-  cleanImagesDirectory()
+
+  const itemUrls = $($('tbody')[0])
+    .find('a')
+    .toArray()
+    .map(a => $(a).attr('href'))
+    .filter(url => !url?.includes('.png'))
+  console.log(itemUrls)
+
   await Promise.all(imageUrls.map(url => downloadImage(url)))
   createImageIndex()
 }
 
-loadImages()
+loadApplicationArtifacts()

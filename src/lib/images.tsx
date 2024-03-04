@@ -100,6 +100,7 @@ import photonCombiner from '../assets/images/photon-combiner.png'
 import planeFilter from '../assets/images/plane-filter.png'
 import planeSmelter from '../assets/images/plane-smelter.png'
 import planetaryLogisticsStation from '../assets/images/planetary-logistics-station.png'
+import planetaryShieldGenerator from '../assets/images/planetary-shield-generator.png'
 import plantFuel from '../assets/images/plant-fuel.png'
 import plasmaCapsule from '../assets/images/plasma-capsule.png'
 import plasmaExciter from '../assets/images/plasma-exciter.png'
@@ -119,7 +120,6 @@ import reComposingAssembler from '../assets/images/re-composing-assembler.png'
 import refinedOil from '../assets/images/refined-oil.png'
 import reinforcedThruster from '../assets/images/reinforced-thruster.png'
 import satelliteSubstation from '../assets/images/satellite-substation.png'
-import selfEvolutionLab from '../assets/images/self-evolution-lab.png'
 import shellSet from '../assets/images/shell-set.png'
 import signalTower from '../assets/images/signal-tower.png'
 import siliconBasedNeuron from '../assets/images/silicon-based-neuron.png'
@@ -268,6 +268,7 @@ export default {
   planeFilter,
   planeSmelter,
   planetaryLogisticsStation,
+  planetaryShieldGenerator,
   plantFuel,
   plasmaCapsule,
   plasmaExciter,
@@ -287,7 +288,6 @@ export default {
   refinedOil,
   reinforcedThruster,
   satelliteSubstation,
-  selfEvolutionLab,
   shellSet,
   signalTower,
   siliconBasedNeuron,

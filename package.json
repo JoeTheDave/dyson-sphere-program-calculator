@@ -13,7 +13,7 @@
     "dev:css": "npm run tailwind -- --watch",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "load-images": "tsx ./scripts/load-images.ts",
+    "load-data": "tsx ./scripts/load-application-artifacts.ts",
     "prettier": "npx prettier --write ."
   },
   "dependencies": {
