@@ -5,7 +5,7 @@ import * as cheerio from 'cheerio'
 const dataUrl = 'https://dsp-wiki.com/Items'
 const htmlArtifactsPath = './src/assets/html'
 const imagesDirectoryPath = './src/assets/images'
-const imageIndexFilePath = './src/lib/images.tsx'
+const imageIndexFilePath = './src/lib/images.ts'
 
 const shouldPurge = false
 

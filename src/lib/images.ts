@@ -120,6 +120,7 @@ import reComposingAssembler from '../assets/images/re-composing-assembler.png'
 import refinedOil from '../assets/images/refined-oil.png'
 import reinforcedThruster from '../assets/images/reinforced-thruster.png'
 import satelliteSubstation from '../assets/images/satellite-substation.png'
+import selfEvolutionLab from '../assets/images/self-evolution-lab.png'
 import shellSet from '../assets/images/shell-set.png'
 import signalTower from '../assets/images/signal-tower.png'
 import siliconBasedNeuron from '../assets/images/silicon-based-neuron.png'
@@ -160,7 +161,6 @@ import trafficMonitor from '../assets/images/traffic-monitor.png'
 import unipolarMagnet from '../assets/images/unipolar-magnet.png'
 import universeMatrix from '../assets/images/universe-matrix.png'
 import verticalLaunchingSilo from '../assets/images/vertical-launching-silo.png'
-import waterPump from '../assets/images/water-pump.png'
 import water from '../assets/images/water.png'
 import windTurbine from '../assets/images/wind-turbine.png'
 import wirelessPowerTower from '../assets/images/wireless-power-tower.png'
@@ -288,6 +288,7 @@ export default {
   refinedOil,
   reinforcedThruster,
   satelliteSubstation,
+  selfEvolutionLab,
   shellSet,
   signalTower,
   siliconBasedNeuron,
@@ -328,7 +329,6 @@ export default {
   unipolarMagnet,
   universeMatrix,
   verticalLaunchingSilo,
-  waterPump,
   water,
   windTurbine,
   wirelessPowerTower,
