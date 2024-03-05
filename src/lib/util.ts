@@ -18,4 +18,9 @@ export const camelToWords = (camelCaseText: string) => {
     .join(' ')
 }
 
+export const camelToKebab = (camelCaseText: string) => camelCaseText.replace(/([a-z\d])([A-Z])/g, '$1-$2').toLowerCase()
+
+export const kebabToCamel = (kebabCaseText: string) =>
+  kebabCaseText.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase())
+
 export const startCase = (word: string) => word.charAt(0).toUpperCase() + word.slice(1)
