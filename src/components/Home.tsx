@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import images from '../lib/images'
-import recipes, { Category } from '../lib/recipes'
+import recipes from '../lib/recipes'
+import { Category } from '../lib/types'
 import { camelToWords, camelToKebab } from '../lib/util'
 
 const Home = () => {
