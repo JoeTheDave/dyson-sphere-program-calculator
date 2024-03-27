@@ -1,6 +1,7 @@
 import images from '../lib/images'
-import { ReactComponentProps, Recipe } from '../lib/types'
 import { HiArrowLongRight } from 'react-icons/hi2'
+import { ReactComponentProps, Recipe } from '../lib/types'
+import { roundToTwo } from '../lib/util'
 
 export interface RecipeDisplayProps extends ReactComponentProps {
   recipe: Recipe
@@ -12,9 +13,9 @@ const RecipeDisplay: React.FC<RecipeDisplayProps> = ({ recipe }) => {
       <div className="flex bg-gray-900 px-4 rounded-[10px] border border-slate-700">
         {Object.keys(recipe.inputs).map(inputKey => (
           <div key={`input-${inputKey}`} className="relative flex items-center justify-center w-[50px] h-[70px]">
-            <img src={images[inputKey as keyof typeof images]} className="w-[40px]" />
+            <img src={images[inputKey as keyof typeof images]} className="h-[40px]" />
             <div className="absolute bottom-3 right-1 font-bold text-white">
-              {recipe.inputs[inputKey as keyof typeof images]}
+              {roundToTwo((recipe.inputs[inputKey as keyof typeof images] || '').toString())}
             </div>
           </div>
         ))}
@@ -24,9 +25,9 @@ const RecipeDisplay: React.FC<RecipeDisplayProps> = ({ recipe }) => {
         </div>
         {Object.keys(recipe.outputs).map(outputKey => (
           <div key={`input-${outputKey}`} className="relative flex items-center justify-center w-[50px] h-[70px]">
-            <img src={images[outputKey as keyof typeof images]} className="w-[40px]" />
+            <img src={images[outputKey as keyof typeof images]} className="h-[40px]" />
             <div className="absolute bottom-3 right-1 font-bold text-white">
-              {recipe.outputs[outputKey as keyof typeof images]}
+              {roundToTwo((recipe.outputs[outputKey as keyof typeof images] || '').toString())}
             </div>
           </div>
         ))}

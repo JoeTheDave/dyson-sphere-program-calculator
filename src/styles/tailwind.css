@@ -1257,6 +1257,10 @@ html {
   height: 80px;
 }
 
+.h-\[40px\] {
+  height: 40px;
+}
+
 .w-\[200px\] {
   width: 200px;
 }

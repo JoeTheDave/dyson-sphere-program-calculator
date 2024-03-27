@@ -288,40 +288,360 @@ const recipeList: RecipeList = {
       },
     ],
   },
-  graphene: { category: Category.component, recipes: [] },
-  carbonNanotube: { category: Category.component, recipes: [] },
-  titaniumAlloy: { category: Category.component, recipes: [] },
-  microcrystallineComponent: { category: Category.component, recipes: [] },
-  processor: { category: Category.component, recipes: [] },
-  particleBroadband: { category: Category.component, recipes: [] },
-  particleContainer: { category: Category.component, recipes: [] },
-  engine: { category: Category.component, recipes: [] },
-  thruster: { category: Category.component, recipes: [] },
-  reinforcedThruster: { category: Category.component, recipes: [] },
-  combustibleUnit: { category: Category.component, recipes: [] },
-  explosiveUnit: { category: Category.component, recipes: [] },
-  crystalExplosiveUnit: { category: Category.component, recipes: [] },
-  titaniumGlass: { category: Category.component, recipes: [] },
-  casimirCrystal: { category: Category.component, recipes: [] },
-  planeFilter: { category: Category.component, recipes: [] },
-  quantumChip: { category: Category.component, recipes: [] },
-  strangeMatter: { category: Category.component, recipes: [] },
-  gravitonLens: { category: Category.component, recipes: [] },
-  solarSail: { category: Category.component, recipes: [] },
-  frameMaterial: { category: Category.component, recipes: [] },
-  dysonSphereComponent: { category: Category.component, recipes: [] },
-  smallCarrierRocket: { category: Category.component, recipes: [] },
-  antimatter: { category: Category.component, recipes: [] },
-  annihilationConstraintSphere: { category: Category.component, recipes: [] },
+  graphene: {
+    category: Category.component,
+    recipes: [{
+      inputs: { energeticGraphite: 3, sulfuricAcid: 1 },
+      outputs: { graphene: 2 },
+      duration: 3,
+      manufacturingType: 'chemical'
+    }, {
+      inputs: { fireIce: 2 },
+      outputs: { graphene: 2, hydrogen: 1 },
+      duration: 2,
+      manufacturingType: 'chemical'
+    }]
+  },
+  carbonNanotube: {
+    category: Category.component,
+    recipes: [{
+      inputs: { energeticGraphite: 3, sulfuricAcid: 1 },
+      outputs: { graphene: 2 },
+      duration: 3,
+      manufacturingType: 'chemical'
+    }, {
+      inputs: { fireIce: 2 },
+      outputs: { graphene: 2, hydrogen: 1 },
+      duration: 2,
+      manufacturingType: 'chemical'
+    }]
+  },
+  titaniumAlloy: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { titaniumIngot: 4, steel: 4, sulfuricAcid: 8 },
+        outputs: { titaniumAlloy: 4 },
+        duration: 12,
+        manufacturingType: 'smelting'
+      }
+    ]
+  },
+  microcrystallineComponent: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { highPuritySilicon: 2, copperIngot: 1 },
+        outputs: { microcrystallineComponent: 1 },
+        duration: 2,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  processor: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { circuitBoard: 2, microcrystallineComponent: 2 },
+        outputs: { processor: 1 },
+        duration: 3,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  particleBroadband: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { carbonNanotube: 2, crystalSilicon: 2, plastic: 1 },
+        outputs: { particleBroadband: 1 },
+        duration: 8,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  particleContainer: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { electromagneticTurbine: 2, copperIngot: 2, graphene: 2 },
+        outputs: { particleContainer: 1 },
+        duration: 4,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  engine: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { magneticCoil: 1, copperIngot: 2 },
+        outputs: { engine: 1 },
+        duration: 3,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  thruster: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { steel: 2, copperIngot: 3 },
+        outputs: { thruster: 1 },
+        duration: 4,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  reinforcedThruster: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { titaniumAlloy: 5, electromagneticTurbine: 5 },
+        outputs: { reinforcedThruster: 1 },
+        duration: 6,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  combustibleUnit: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { coal: 3 },
+        outputs: { combustibleUnit: 1 },
+        duration: 3,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  explosiveUnit: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { combustibleUnit: 2, plastic: 2, sulfuricAcid: 1 },
+        outputs: { explosiveUnit: 2 },
+        duration: 6,
+        manufacturingType: 'chemical'
+      }
+    ]
+  },
+  crystalExplosiveUnit: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { explosiveUnit: 8, casimirCrystal: 1, crystalSilicon: 8 },
+        outputs: { crystalExplosiveUnit: 8 },
+        duration: 24,
+        manufacturingType: 'chemical'
+      }
+    ]
+  },
+  titaniumGlass: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { glass: 2, titaniumIngot: 2, water: 2 },
+        outputs: { titaniumGlass: 2 },
+        duration: 5,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  casimirCrystal: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { titaniumCrystal: 1, graphene: 2, hydrogen: 12 },
+        outputs: { casimirCrystal: 1 },
+        duration: 4,
+        manufacturingType: 'assembling'
+      }, {
+        inputs: { gratingCrystal: 8, graphene: 2, hydrogen: 12 },
+        outputs: { casimirCrystal: 1 },
+        duration: 4,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  planeFilter: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { casimirCrystal: 1, titaniumGlass: 2 },
+        outputs: { planeFilter: 1 },
+        duration: 12,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  quantumChip: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { processor: 2, planeFilter: 2 },
+        outputs: { quantumChip: 1 },
+        duration: 6,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  strangeMatter: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { particleContainer: 2, ironIngot: 2, deuterium: 10 },
+        outputs: { strangeMatter: 1 },
+        duration: 8,
+        manufacturingType: 'physics'
+      }
+    ]
+  },
+  gravitonLens: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { diamond: 4, strangeMatter: 1 },
+        outputs: { gravitonLens: 1 },
+        duration: 6,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  solarSail: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { graphene: 1, photonCombiner: 1 },
+        outputs: { solarSail: 2 },
+        duration: 4,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  frameMaterial: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { carbonNanotube: 4, titaniumAlloy: 1, highPuritySilicon: 1 },
+        outputs: { frameMaterial: 1 },
+        duration: 6,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  dysonSphereComponent: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { frameMaterial: 3, solarSail: 3, processor: 3 },
+        outputs: { dysonSphereComponent: 1 },
+        duration: 8,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  smallCarrierRocket: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { dysonSphereComponent: 2, deuteronFuelRod: 4, quantumChip: 2 },
+        outputs: { smallCarrierRocket: 1 },
+        duration: 6,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  antimatter: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { criticalPhoton: 2 },
+        outputs: { antimatter: 2, hydrogen: 2 },
+        duration: 2,
+        manufacturingType: 'physics'
+      }
+    ]
+  },
+  annihilationConstraintSphere: {
+    category: Category.component,
+    recipes: [
+      {
+        inputs: { particleContainer: 1, processor: 1 },
+        outputs: { annihilationConstraintSphere: 1 },
+        duration: 20,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
 
   // Category.matrix
 
-  electromagneticMatrix: { category: Category.matrix, recipes: [] },
-  energyMatrix: { category: Category.matrix, recipes: [] },
-  structureMatrix: { category: Category.matrix, recipes: [] },
-  informationMatrix: { category: Category.matrix, recipes: [] },
-  gravityMatrix: { category: Category.matrix, recipes: [] },
-  universeMatrix: { category: Category.matrix, recipes: [] },
+  electromagneticMatrix: {
+    category: Category.matrix,
+    recipes: [
+      {
+        inputs: { magneticCoil: 1, circuitBoard: 1 },
+        outputs: { electromagneticMatrix: 1 },
+        duration: 3,
+        manufacturingType: 'research'
+      }
+    ]
+  },
+  energyMatrix: {
+    category: Category.matrix,
+    recipes: [
+      {
+        inputs: { energeticGraphite: 2, hydrogen: 2 },
+        outputs: { energyMatrix: 1 },
+        duration: 6,
+        manufacturingType: 'research'
+      }
+    ]
+  },
+  structureMatrix: {
+    category: Category.matrix,
+    recipes: [
+      {
+        inputs: { diamond: 1, titaniumCrystal: 1 },
+        outputs: { structureMatrix: 1 },
+        duration: 8,
+        manufacturingType: 'research'
+      }
+    ]
+  },
+  informationMatrix: {
+    category: Category.matrix, recipes: [
+      {
+        inputs: { processor: 2, particleBroadband: 1 },
+        outputs: { informationMatrix: 1 },
+        duration: 10,
+        manufacturingType: 'research'
+      }
+    ]
+  },
+  gravityMatrix: {
+    category: Category.matrix,
+    recipes: [
+      {
+        inputs: { gravitonLens: 1, quantumChip: 1 },
+        outputs: { gravityMatrix: 2 },
+        duration: 24,
+        manufacturingType: 'research'
+      }
+    ]
+  },
+  universeMatrix: {
+    category: Category.matrix,
+    recipes: [
+      {
+        inputs: { electromagneticMatrix: 1, energyMatrix: 1, structureMatrix: 1, informationMatrix: 1, gravityMatrix: 1, antimatter: 1 },
+        outputs: { universeMatrix: 1 },
+        duration: 15,
+        manufacturingType: 'research'
+      }
+    ]
+  },
 
   // Category.utility
 
@@ -401,9 +721,39 @@ const recipeList: RecipeList = {
 
   // Category.fuelRod
 
-  hydrogenFuelRod: { category: Category.fuelRod, recipes: [] },
-  deuteronFuelRod: { category: Category.fuelRod, recipes: [] },
-  antimatterFuelRod: { category: Category.fuelRod, recipes: [] },
+  hydrogenFuelRod: {
+    category: Category.fuelRod,
+    recipes: [
+      {
+        inputs: { titaniumIngot: 1, hydrogen: 10 },
+        outputs: { hydrogenFuelRod: 2 },
+        duration: 6,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  deuteronFuelRod: {
+    category: Category.fuelRod,
+    recipes: [
+      {
+        inputs: { titaniumAlloy: 1, deuterium: 20, superMagneticRing: 1 },
+        outputs: { deuteronFuelRod: 2 },
+        duration: 12,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
+  antimatterFuelRod: {
+    category: Category.fuelRod,
+    recipes: [
+      {
+        inputs: { antimatter: 12, hydrogen: 12, annihilationConstraintSphere: 1, titaniumAlloy: 1 },
+        outputs: { antimatterFuelRod: 2 },
+        duration: 24,
+        manufacturingType: 'assembling'
+      }
+    ]
+  },
   strangeAnnihilationFuelRod: { category: Category.fuelRod, recipes: [] },
 
   // Category.defensiveBuilding

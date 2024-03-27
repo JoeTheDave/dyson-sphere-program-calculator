@@ -170,7 +170,7 @@ export type Item =
   | 'windTurbine'
   | 'wirelessPowerTower'
 
-export type ManufacturingType = 'assembling' | 'smelting' | 'chemical' | 'physics'
+export type ManufacturingType = 'assembling' | 'smelting' | 'chemical' | 'physics' | 'research'
 
 export type Recipe = {
   inputs: { [key in Item]?: number }

@@ -27,6 +27,16 @@ export const kebabToCamel = (kebabCaseText: string) =>
 
 export const startCase = (word: string) => word.charAt(0).toUpperCase() + word.slice(1)
 
+export const roundToTwo = (num: string) => {
+  let number = parseFloat(num);
+  if (!isNaN(number)) {
+      let roundedNumber = parseFloat(number.toFixed(2));
+      return roundedNumber;
+  } else {
+      return 0;
+  }
+}
+
 export const modifyRecipe = (recipe: Recipe, productionSpeed: number, machineCount: number) => {
   const recipeSpeed = recipe.duration / productionSpeed
   const modifiedRecipe: Recipe = {

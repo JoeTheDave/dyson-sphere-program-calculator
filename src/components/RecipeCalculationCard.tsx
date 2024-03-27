@@ -49,6 +49,8 @@ const RecipeCalculationCard: React.FC<RecipeCalculationCardProps> = ({
     case 'physics':
       machineImage = images.miniatureParticleCollider
       break
+    case 'research':
+      machineImage = images.matrixLab
   }
   return (
     <div className="border p-[20px] bg-slate-800 border-slate-700 rounded-[20px] flex flex-col w-[400px] mr-6">
