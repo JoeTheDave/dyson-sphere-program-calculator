@@ -1,26 +1,32 @@
 import { useContext } from 'react'
+import { HiCubeTransparent } from 'react-icons/hi2'
 import images from '../lib/images'
-import { ReactComponentProps, Recipe } from '../lib/types'
-import { camelToWords } from '../lib/util'
+import { ItemInfo, ReactComponentProps } from '../lib/types'
+import { camelToWords, modifyRecipe } from '../lib/util'
 import { ProductionSpeedContext } from '../lib/ProductionSpeedContext'
 import RecipeDisplay from './RecipeDisplay'
 
 export interface RecipeCalculationCardProps extends ReactComponentProps {
+  itemInfo: ItemInfo
   recipeKey: keyof typeof images
-  recipe: Recipe
-  modifiedRecipe: Recipe
   machineCount: number
-  machineCountChangeHnadler?: (val: number) => void
+  machineCountChangeHandler?: (val: number) => void
+  useAlternateRecipe: boolean
+  toggleAlternateRecipeHandler: () => void
 }
 
 const RecipeCalculationCard: React.FC<RecipeCalculationCardProps> = ({
+  itemInfo,
   recipeKey,
-  recipe,
-  modifiedRecipe,
   machineCount,
-  machineCountChangeHnadler,
+  machineCountChangeHandler,
+  useAlternateRecipe,
+  toggleAlternateRecipeHandler,
 }) => {
   const { state } = useContext(ProductionSpeedContext)
+  const recipe = itemInfo.recipes[useAlternateRecipe ? 1 : 0]
+  const productionSpeed = state[recipe.manufacturingType as keyof typeof state] || 1
+  const modifiedRecipe = modifyRecipe(recipe, productionSpeed, machineCount)
   let machineImage = ''
   switch (recipe.manufacturingType) {
     case 'assembling':
@@ -53,18 +59,27 @@ const RecipeCalculationCard: React.FC<RecipeCalculationCardProps> = ({
       machineImage = images.matrixLab
   }
   return (
-    <div className="border p-[20px] bg-slate-800 border-slate-700 rounded-[20px] flex flex-col w-[400px] mr-6">
+    <div className="border p-[20px] bg-slate-800 border-slate-700 rounded-[20px] flex flex-col w-[400px] mr-6 relative">
+      {itemInfo.recipes.length > 1 && (
+        <div
+          className="w-[30px] h-[30px] bg-slate-700 rounded-full flex justify-center items-center cursor-pointer transition hover:bg-slate-500 absolute top-[20px] left-[20px]"
+          onClick={toggleAlternateRecipeHandler}
+        >
+          <HiCubeTransparent size="25px" />
+        </div>
+      )}
+
       <img className="h-[80px] flex-grow-0 block m-auto" src={images[recipeKey]} />
       <div className="text-[18px] font-bold text-white text-center">{camelToWords(recipeKey)}</div>
       <div className="my-6">
         <RecipeDisplay recipe={recipe} />
       </div>
       <div className="flex justify-center items-center">
-        {machineCountChangeHnadler ? (
+        {machineCountChangeHandler ? (
           <input
             type="number"
             value={machineCount}
-            onChange={e => machineCountChangeHnadler(parseInt(e.target.value))}
+            onChange={e => machineCountChangeHandler(parseInt(e.target.value))}
             className="input input-bordered w-[80px] text-[24px] text-center mr-2 bg-slate-900"
           />
         ) : (

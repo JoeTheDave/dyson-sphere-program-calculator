@@ -1,18 +1,17 @@
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
-import { camelToWords, kebabToCamel, modifyRecipe } from '../lib/util'
+import { camelToWords, kebabToCamel } from '../lib/util'
 import images from '../lib/images'
 import recipeList from '../lib/recipes'
 import ProductionSpeedSelection from './ProductionSpeedSelection'
 import RecipeCalculationCard from './RecipeCalculationCard'
-import { ProductionSpeedContext } from '../lib/ProductionSpeedContext'
 
 const Recipe = () => {
   const { id } = useParams()
   const navigate = useNavigate()
-  const { state } = useContext(ProductionSpeedContext)
   const [machineCount, setMachineCount] = useState<number>(1)
+  const [alternateRecipesList, setAlternateRecipesList] = useState<string[]>([])
   const targetItemKey = kebabToCamel(id || '') as keyof typeof images
   const itemInfo = recipeList[targetItemKey]
 
@@ -25,11 +24,7 @@ const Recipe = () => {
   if (!itemInfo) {
     return <div></div>
   }
-  const recipe = itemInfo.recipes[0]
-  const productionSpeed = state[recipe.manufacturingType as keyof typeof state] || 1
-  const modifiedRecipe = modifyRecipe(recipe, productionSpeed, machineCount)
 
-  console.log(recipe)
   return (
     <div className="m-6">
       <div className="flex items-center">
@@ -46,16 +41,17 @@ const Recipe = () => {
       <div className="mt-20 flex">
         <RecipeCalculationCard
           recipeKey={targetItemKey}
-          recipe={recipe}
-          modifiedRecipe={modifiedRecipe}
+          itemInfo={itemInfo}
           machineCount={machineCount}
-          machineCountChangeHnadler={setMachineCount}
-        />
-        <RecipeCalculationCard
-          recipeKey={targetItemKey}
-          recipe={recipe}
-          modifiedRecipe={modifiedRecipe}
-          machineCount={machineCount}
+          machineCountChangeHandler={setMachineCount}
+          useAlternateRecipe={alternateRecipesList.includes(targetItemKey)}
+          toggleAlternateRecipeHandler={() => {
+            if (alternateRecipesList.includes(targetItemKey)) {
+              setAlternateRecipesList(alternateRecipesList.filter(itemKey => itemKey !== targetItemKey))
+            } else {
+              setAlternateRecipesList([...alternateRecipesList, targetItemKey])
+            }
+          }}
         />
       </div>
     </div>

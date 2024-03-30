@@ -290,31 +290,37 @@ const recipeList: RecipeList = {
   },
   graphene: {
     category: Category.component,
-    recipes: [{
-      inputs: { energeticGraphite: 3, sulfuricAcid: 1 },
-      outputs: { graphene: 2 },
-      duration: 3,
-      manufacturingType: 'chemical'
-    }, {
-      inputs: { fireIce: 2 },
-      outputs: { graphene: 2, hydrogen: 1 },
-      duration: 2,
-      manufacturingType: 'chemical'
-    }]
+    recipes: [
+      {
+        inputs: { energeticGraphite: 3, sulfuricAcid: 1 },
+        outputs: { graphene: 2 },
+        duration: 3,
+        manufacturingType: 'chemical',
+      },
+      {
+        inputs: { fireIce: 2 },
+        outputs: { graphene: 2, hydrogen: 1 },
+        duration: 2,
+        manufacturingType: 'chemical',
+      },
+    ],
   },
   carbonNanotube: {
     category: Category.component,
-    recipes: [{
-      inputs: { energeticGraphite: 3, sulfuricAcid: 1 },
-      outputs: { graphene: 2 },
-      duration: 3,
-      manufacturingType: 'chemical'
-    }, {
-      inputs: { fireIce: 2 },
-      outputs: { graphene: 2, hydrogen: 1 },
-      duration: 2,
-      manufacturingType: 'chemical'
-    }]
+    recipes: [
+      {
+        inputs: { graphene: 3, titaniumIngot: 1 },
+        outputs: { carbonNanotube: 2 },
+        duration: 4,
+        manufacturingType: 'chemical',
+      },
+      {
+        inputs: { spiniformStalagmiteCrystal: 6 },
+        outputs: { carbonNanotube: 2 },
+        duration: 4,
+        manufacturingType: 'chemical',
+      },
+    ],
   },
   titaniumAlloy: {
     category: Category.component,
@@ -323,9 +329,9 @@ const recipeList: RecipeList = {
         inputs: { titaniumIngot: 4, steel: 4, sulfuricAcid: 8 },
         outputs: { titaniumAlloy: 4 },
         duration: 12,
-        manufacturingType: 'smelting'
-      }
-    ]
+        manufacturingType: 'smelting',
+      },
+    ],
   },
   microcrystallineComponent: {
     category: Category.component,
@@ -334,9 +340,9 @@ const recipeList: RecipeList = {
         inputs: { highPuritySilicon: 2, copperIngot: 1 },
         outputs: { microcrystallineComponent: 1 },
         duration: 2,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   processor: {
     category: Category.component,
@@ -345,9 +351,9 @@ const recipeList: RecipeList = {
         inputs: { circuitBoard: 2, microcrystallineComponent: 2 },
         outputs: { processor: 1 },
         duration: 3,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   particleBroadband: {
     category: Category.component,
@@ -356,9 +362,9 @@ const recipeList: RecipeList = {
         inputs: { carbonNanotube: 2, crystalSilicon: 2, plastic: 1 },
         outputs: { particleBroadband: 1 },
         duration: 8,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   particleContainer: {
     category: Category.component,
@@ -367,9 +373,15 @@ const recipeList: RecipeList = {
         inputs: { electromagneticTurbine: 2, copperIngot: 2, graphene: 2 },
         outputs: { particleContainer: 1 },
         duration: 4,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+      {
+        inputs: { unipolarMagnet: 10, copperIngot: 2 },
+        outputs: { particleContainer: 1 },
+        duration: 4,
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   engine: {
     category: Category.component,
@@ -378,9 +390,9 @@ const recipeList: RecipeList = {
         inputs: { magneticCoil: 1, copperIngot: 2 },
         outputs: { engine: 1 },
         duration: 3,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   thruster: {
     category: Category.component,
@@ -389,9 +401,9 @@ const recipeList: RecipeList = {
         inputs: { steel: 2, copperIngot: 3 },
         outputs: { thruster: 1 },
         duration: 4,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   reinforcedThruster: {
     category: Category.component,
@@ -400,9 +412,9 @@ const recipeList: RecipeList = {
         inputs: { titaniumAlloy: 5, electromagneticTurbine: 5 },
         outputs: { reinforcedThruster: 1 },
         duration: 6,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   combustibleUnit: {
     category: Category.component,
@@ -411,9 +423,9 @@ const recipeList: RecipeList = {
         inputs: { coal: 3 },
         outputs: { combustibleUnit: 1 },
         duration: 3,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   explosiveUnit: {
     category: Category.component,
@@ -422,9 +434,9 @@ const recipeList: RecipeList = {
         inputs: { combustibleUnit: 2, plastic: 2, sulfuricAcid: 1 },
         outputs: { explosiveUnit: 2 },
         duration: 6,
-        manufacturingType: 'chemical'
-      }
-    ]
+        manufacturingType: 'chemical',
+      },
+    ],
   },
   crystalExplosiveUnit: {
     category: Category.component,
@@ -433,9 +445,9 @@ const recipeList: RecipeList = {
         inputs: { explosiveUnit: 8, casimirCrystal: 1, crystalSilicon: 8 },
         outputs: { crystalExplosiveUnit: 8 },
         duration: 24,
-        manufacturingType: 'chemical'
-      }
-    ]
+        manufacturingType: 'chemical',
+      },
+    ],
   },
   titaniumGlass: {
     category: Category.component,
@@ -444,9 +456,9 @@ const recipeList: RecipeList = {
         inputs: { glass: 2, titaniumIngot: 2, water: 2 },
         outputs: { titaniumGlass: 2 },
         duration: 5,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   casimirCrystal: {
     category: Category.component,
@@ -455,14 +467,15 @@ const recipeList: RecipeList = {
         inputs: { titaniumCrystal: 1, graphene: 2, hydrogen: 12 },
         outputs: { casimirCrystal: 1 },
         duration: 4,
-        manufacturingType: 'assembling'
-      }, {
+        manufacturingType: 'assembling',
+      },
+      {
         inputs: { gratingCrystal: 8, graphene: 2, hydrogen: 12 },
         outputs: { casimirCrystal: 1 },
         duration: 4,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   planeFilter: {
     category: Category.component,
@@ -471,9 +484,9 @@ const recipeList: RecipeList = {
         inputs: { casimirCrystal: 1, titaniumGlass: 2 },
         outputs: { planeFilter: 1 },
         duration: 12,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   quantumChip: {
     category: Category.component,
@@ -482,9 +495,9 @@ const recipeList: RecipeList = {
         inputs: { processor: 2, planeFilter: 2 },
         outputs: { quantumChip: 1 },
         duration: 6,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   strangeMatter: {
     category: Category.component,
@@ -493,9 +506,9 @@ const recipeList: RecipeList = {
         inputs: { particleContainer: 2, ironIngot: 2, deuterium: 10 },
         outputs: { strangeMatter: 1 },
         duration: 8,
-        manufacturingType: 'physics'
-      }
-    ]
+        manufacturingType: 'physics',
+      },
+    ],
   },
   gravitonLens: {
     category: Category.component,
@@ -504,9 +517,9 @@ const recipeList: RecipeList = {
         inputs: { diamond: 4, strangeMatter: 1 },
         outputs: { gravitonLens: 1 },
         duration: 6,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   solarSail: {
     category: Category.component,
@@ -515,9 +528,9 @@ const recipeList: RecipeList = {
         inputs: { graphene: 1, photonCombiner: 1 },
         outputs: { solarSail: 2 },
         duration: 4,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   frameMaterial: {
     category: Category.component,
@@ -526,9 +539,9 @@ const recipeList: RecipeList = {
         inputs: { carbonNanotube: 4, titaniumAlloy: 1, highPuritySilicon: 1 },
         outputs: { frameMaterial: 1 },
         duration: 6,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   dysonSphereComponent: {
     category: Category.component,
@@ -537,9 +550,9 @@ const recipeList: RecipeList = {
         inputs: { frameMaterial: 3, solarSail: 3, processor: 3 },
         outputs: { dysonSphereComponent: 1 },
         duration: 8,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   smallCarrierRocket: {
     category: Category.component,
@@ -548,9 +561,9 @@ const recipeList: RecipeList = {
         inputs: { dysonSphereComponent: 2, deuteronFuelRod: 4, quantumChip: 2 },
         outputs: { smallCarrierRocket: 1 },
         duration: 6,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   antimatter: {
     category: Category.component,
@@ -559,9 +572,9 @@ const recipeList: RecipeList = {
         inputs: { criticalPhoton: 2 },
         outputs: { antimatter: 2, hydrogen: 2 },
         duration: 2,
-        manufacturingType: 'physics'
-      }
-    ]
+        manufacturingType: 'physics',
+      },
+    ],
   },
   annihilationConstraintSphere: {
     category: Category.component,
@@ -570,9 +583,9 @@ const recipeList: RecipeList = {
         inputs: { particleContainer: 1, processor: 1 },
         outputs: { annihilationConstraintSphere: 1 },
         duration: 20,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
 
   // Category.matrix
@@ -584,9 +597,9 @@ const recipeList: RecipeList = {
         inputs: { magneticCoil: 1, circuitBoard: 1 },
         outputs: { electromagneticMatrix: 1 },
         duration: 3,
-        manufacturingType: 'research'
-      }
-    ]
+        manufacturingType: 'research',
+      },
+    ],
   },
   energyMatrix: {
     category: Category.matrix,
@@ -595,9 +608,9 @@ const recipeList: RecipeList = {
         inputs: { energeticGraphite: 2, hydrogen: 2 },
         outputs: { energyMatrix: 1 },
         duration: 6,
-        manufacturingType: 'research'
-      }
-    ]
+        manufacturingType: 'research',
+      },
+    ],
   },
   structureMatrix: {
     category: Category.matrix,
@@ -606,19 +619,20 @@ const recipeList: RecipeList = {
         inputs: { diamond: 1, titaniumCrystal: 1 },
         outputs: { structureMatrix: 1 },
         duration: 8,
-        manufacturingType: 'research'
-      }
-    ]
+        manufacturingType: 'research',
+      },
+    ],
   },
   informationMatrix: {
-    category: Category.matrix, recipes: [
+    category: Category.matrix,
+    recipes: [
       {
         inputs: { processor: 2, particleBroadband: 1 },
         outputs: { informationMatrix: 1 },
         duration: 10,
-        manufacturingType: 'research'
-      }
-    ]
+        manufacturingType: 'research',
+      },
+    ],
   },
   gravityMatrix: {
     category: Category.matrix,
@@ -627,20 +641,27 @@ const recipeList: RecipeList = {
         inputs: { gravitonLens: 1, quantumChip: 1 },
         outputs: { gravityMatrix: 2 },
         duration: 24,
-        manufacturingType: 'research'
-      }
-    ]
+        manufacturingType: 'research',
+      },
+    ],
   },
   universeMatrix: {
     category: Category.matrix,
     recipes: [
       {
-        inputs: { electromagneticMatrix: 1, energyMatrix: 1, structureMatrix: 1, informationMatrix: 1, gravityMatrix: 1, antimatter: 1 },
+        inputs: {
+          electromagneticMatrix: 1,
+          energyMatrix: 1,
+          structureMatrix: 1,
+          informationMatrix: 1,
+          gravityMatrix: 1,
+          antimatter: 1,
+        },
         outputs: { universeMatrix: 1 },
         duration: 15,
-        manufacturingType: 'research'
-      }
-    ]
+        manufacturingType: 'research',
+      },
+    ],
   },
 
   // Category.utility
@@ -728,9 +749,9 @@ const recipeList: RecipeList = {
         inputs: { titaniumIngot: 1, hydrogen: 10 },
         outputs: { hydrogenFuelRod: 2 },
         duration: 6,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   deuteronFuelRod: {
     category: Category.fuelRod,
@@ -739,9 +760,9 @@ const recipeList: RecipeList = {
         inputs: { titaniumAlloy: 1, deuterium: 20, superMagneticRing: 1 },
         outputs: { deuteronFuelRod: 2 },
         duration: 12,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   antimatterFuelRod: {
     category: Category.fuelRod,
@@ -750,9 +771,9 @@ const recipeList: RecipeList = {
         inputs: { antimatter: 12, hydrogen: 12, annihilationConstraintSphere: 1, titaniumAlloy: 1 },
         outputs: { antimatterFuelRod: 2 },
         duration: 24,
-        manufacturingType: 'assembling'
-      }
-    ]
+        manufacturingType: 'assembling',
+      },
+    ],
   },
   strangeAnnihilationFuelRod: { category: Category.fuelRod, recipes: [] },
 

@@ -28,12 +28,12 @@ export const kebabToCamel = (kebabCaseText: string) =>
 export const startCase = (word: string) => word.charAt(0).toUpperCase() + word.slice(1)
 
 export const roundToTwo = (num: string) => {
-  let number = parseFloat(num);
+  const number = parseFloat(num)
   if (!isNaN(number)) {
-      let roundedNumber = parseFloat(number.toFixed(2));
-      return roundedNumber;
+    const roundedNumber = parseFloat(number.toFixed(2))
+    return roundedNumber
   } else {
-      return 0;
+    return 0
   }
 }
 
