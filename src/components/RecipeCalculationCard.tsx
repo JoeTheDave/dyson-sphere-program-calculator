@@ -59,7 +59,7 @@ const RecipeCalculationCard: React.FC<RecipeCalculationCardProps> = ({
       machineImage = images.matrixLab
   }
   return (
-    <div className="border p-[20px] bg-slate-800 border-slate-700 rounded-[20px] flex flex-col w-[400px] mr-6 relative">
+    <div className="border p-[20px] bg-slate-800 border-slate-700 rounded-[20px] flex flex-col w-[400px] mr-6 mb-6 relative">
       {itemInfo.recipes.length > 1 && (
         <div
           className="w-[30px] h-[30px] bg-slate-700 rounded-full flex justify-center items-center cursor-pointer transition hover:bg-slate-500 absolute top-[20px] left-[20px]"

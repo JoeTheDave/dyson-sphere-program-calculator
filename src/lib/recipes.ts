@@ -793,9 +793,39 @@ const recipeList: RecipeList = {
   magnumAmmoBox: { category: Category.munition, recipes: [] },
   titaniumAmmoBox: { category: Category.munition, recipes: [] },
   superalloyAmmoBox: { category: Category.munition, recipes: [] },
-  missileSet: { category: Category.munition, recipes: [] },
-  supersonicMissileSet: { category: Category.munition, recipes: [] },
-  gravityMissileSet: { category: Category.munition, recipes: [] },
+  missileSet: {
+    category: Category.munition,
+    recipes: [
+      {
+        inputs: { copperIngot: 6, circuitBoard: 3, combustibleUnit: 2, engine: 1 },
+        outputs: { missileSet: 1 },
+        duration: 2,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  supersonicMissileSet: {
+    category: Category.munition,
+    recipes: [
+      {
+        inputs: { missileSet: 2, processor: 4, explosiveUnit: 2, thruster: 2 },
+        outputs: { supersonicMissileSet: 2 },
+        duration: 4,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  gravityMissileSet: {
+    category: Category.munition,
+    recipes: [
+      {
+        inputs: { supersonicMissileSet: 3, crystalExplosiveUnit: 6, strangeMatter: 3 },
+        outputs: { gravityMissileSet: 3 },
+        duration: 6,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
   shellSet: { category: Category.munition, recipes: [] },
   highExplosiveShellSet: { category: Category.munition, recipes: [] },
   crystalShellSet: { category: Category.munition, recipes: [] },
