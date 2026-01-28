@@ -666,79 +666,695 @@ const recipeList: RecipeList = {
 
   // Category.utility
 
-  proliferatorMk1: { category: Category.utility, recipes: [] },
-  proliferatorMk2: { category: Category.utility, recipes: [] },
-  proliferatorMk3: { category: Category.utility, recipes: [] },
-  foundation: { category: Category.utility, recipes: [] },
-  spaceWarper: { category: Category.utility, recipes: [] },
+  proliferatorMk1: {
+    category: Category.utility,
+    recipes: [
+      {
+        inputs: { coal: 1 },
+        outputs: { proliferatorMk1: 1 },
+        duration: 0.5,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  proliferatorMk2: {
+    category: Category.utility,
+    recipes: [
+      {
+        inputs: { proliferatorMk1: 2, diamond: 1 },
+        outputs: { proliferatorMk2: 1 },
+        duration: 1,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  proliferatorMk3: {
+    category: Category.utility,
+    recipes: [
+      {
+        inputs: { proliferatorMk2: 2, carbonNanotube: 1 },
+        outputs: { proliferatorMk3: 1 },
+        duration: 2,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  foundation: {
+    category: Category.utility,
+    recipes: [
+      {
+        inputs: { stoneBrick: 3, steel: 1 },
+        outputs: { foundation: 1 },
+        duration: 1,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  spaceWarper: {
+    category: Category.utility,
+    recipes: [
+      {
+        inputs: { gravitonLens: 1 },
+        outputs: { spaceWarper: 1 },
+        duration: 10,
+        manufacturingType: 'assembling',
+      },
+      {
+        inputs: { gravityMatrix: 1 },
+        outputs: { spaceWarper: 8 },
+        duration: 10,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
 
   // Category.electricalGrid
 
-  teslaTower: { category: Category.electricalGrid, recipes: [] },
-  wirelessPowerTower: { category: Category.electricalGrid, recipes: [] },
-  satelliteSubstation: { category: Category.electricalGrid, recipes: [] },
-  windTurbine: { category: Category.electricalGrid, recipes: [] },
-  thermalPowerPlant: { category: Category.electricalGrid, recipes: [] },
-  solarPanel: { category: Category.electricalGrid, recipes: [] },
-  geothermalPowerStation: { category: Category.electricalGrid, recipes: [] },
-  miniFusionPowerPlant: { category: Category.electricalGrid, recipes: [] },
-  accumulator: { category: Category.electricalGrid, recipes: [] },
-  fullAccumulator: { category: Category.electricalGrid, recipes: [] },
-  energyExchanger: { category: Category.electricalGrid, recipes: [] },
-  rayReceiver: { category: Category.electricalGrid, recipes: [] },
-  artificialStar: { category: Category.electricalGrid, recipes: [] },
+  teslaTower: {
+    category: Category.electricalGrid,
+    recipes: [
+      {
+        inputs: { ironIngot: 2, magneticCoil: 2 },
+        outputs: { teslaTower: 1 },
+        duration: 1,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  wirelessPowerTower: {
+    category: Category.electricalGrid,
+    recipes: [
+      {
+        inputs: { teslaTower: 1, plasmaExciter: 3 },
+        outputs: { wirelessPowerTower: 1 },
+        duration: 3,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  satelliteSubstation: {
+    category: Category.electricalGrid,
+    recipes: [
+      {
+        inputs: { wirelessPowerTower: 1, superMagneticRing: 10, frameMaterial: 2 },
+        outputs: { satelliteSubstation: 1 },
+        duration: 5,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  windTurbine: {
+    category: Category.electricalGrid,
+    recipes: [
+      {
+        inputs: { ironIngot: 6, gear: 1, magneticCoil: 3 },
+        outputs: { windTurbine: 1 },
+        duration: 4,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  thermalPowerPlant: {
+    category: Category.electricalGrid,
+    recipes: [
+      {
+        inputs: { ironIngot: 10, stoneBrick: 4, gear: 4, magneticCoil: 4 },
+        outputs: { thermalPowerPlant: 1 },
+        duration: 5,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  solarPanel: {
+    category: Category.electricalGrid,
+    recipes: [
+      {
+        inputs: { copperIngot: 10, highPuritySilicon: 10, circuitBoard: 5 },
+        outputs: { solarPanel: 1 },
+        duration: 6,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  geothermalPowerStation: {
+    category: Category.electricalGrid,
+    recipes: [
+      {
+        inputs: { steel: 15, copperIngot: 20, photonCombiner: 4, superMagneticRing: 1 },
+        outputs: { geothermalPowerStation: 1 },
+        duration: 6,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  miniFusionPowerPlant: {
+    category: Category.electricalGrid,
+    recipes: [
+      {
+        inputs: { titaniumAlloy: 12, superMagneticRing: 10, carbonNanotube: 8, processor: 4 },
+        outputs: { miniFusionPowerPlant: 1 },
+        duration: 10,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  accumulator: {
+    category: Category.electricalGrid,
+    recipes: [
+      {
+        inputs: { ironIngot: 6, superMagneticRing: 1, crystalSilicon: 6 },
+        outputs: { accumulator: 1 },
+        duration: 5,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  fullAccumulator: {
+    category: Category.electricalGrid,
+    recipes: [
+      {
+        inputs: { accumulator: 1 },
+        outputs: { fullAccumulator: 1 },
+        duration: 4,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  energyExchanger: {
+    category: Category.electricalGrid,
+    recipes: [
+      {
+        inputs: { titaniumAlloy: 40, steel: 40, processor: 40, particleContainer: 8 },
+        outputs: { energyExchanger: 1 },
+        duration: 15,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  rayReceiver: {
+    category: Category.electricalGrid,
+    recipes: [
+      {
+        inputs: { steel: 20, highPuritySilicon: 20, photonCombiner: 10, processor: 5, superMagneticRing: 20 },
+        outputs: { rayReceiver: 1 },
+        duration: 8,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  artificialStar: {
+    category: Category.electricalGrid,
+    recipes: [
+      {
+        inputs: { titaniumAlloy: 20, frameMaterial: 20, annihilationConstraintSphere: 10, quantumChip: 10 },
+        outputs: { artificialStar: 1 },
+        duration: 30,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
 
   // Category.logisticsBuilding
 
-  conveyorBeltMk1: { category: Category.logisticsBuilding, recipes: [] },
-  conveyorBeltMk2: { category: Category.logisticsBuilding, recipes: [] },
-  conveyorBeltMk3: { category: Category.logisticsBuilding, recipes: [] },
-  sorterMk1: { category: Category.logisticsBuilding, recipes: [] },
-  sorterMk2: { category: Category.logisticsBuilding, recipes: [] },
-  sorterMk3: { category: Category.logisticsBuilding, recipes: [] },
-  splitter: { category: Category.logisticsBuilding, recipes: [] },
-  sprayCoater: { category: Category.logisticsBuilding, recipes: [] },
-  trafficMonitor: { category: Category.logisticsBuilding, recipes: [] },
-  automaticPiler: { category: Category.logisticsBuilding, recipes: [] },
-  storageMk1: { category: Category.logisticsBuilding, recipes: [] },
-  storageMk2: { category: Category.logisticsBuilding, recipes: [] },
-  storageTank: { category: Category.logisticsBuilding, recipes: [] },
-  logisticsDistributor: { category: Category.logisticsBuilding, recipes: [] },
-  planetaryLogisticsStation: { category: Category.logisticsBuilding, recipes: [] },
-  interstellarLogisticsStation: { category: Category.logisticsBuilding, recipes: [] },
-  orbitalCollector: { category: Category.logisticsBuilding, recipes: [] },
+  conveyorBeltMk1: {
+    category: Category.logisticsBuilding,
+    recipes: [
+      {
+        inputs: { ironIngot: 2, gear: 1 },
+        outputs: { conveyorBeltMk1: 3 },
+        duration: 1,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  conveyorBeltMk2: {
+    category: Category.logisticsBuilding,
+    recipes: [
+      {
+        inputs: { conveyorBeltMk1: 3, electromagneticTurbine: 1 },
+        outputs: { conveyorBeltMk2: 3 },
+        duration: 1,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  conveyorBeltMk3: {
+    category: Category.logisticsBuilding,
+    recipes: [
+      {
+        inputs: { conveyorBeltMk2: 3, superMagneticRing: 1, graphene: 1 },
+        outputs: { conveyorBeltMk3: 3 },
+        duration: 1,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  sorterMk1: {
+    category: Category.logisticsBuilding,
+    recipes: [
+      {
+        inputs: { ironIngot: 1, circuitBoard: 1 },
+        outputs: { sorterMk1: 1 },
+        duration: 1,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  sorterMk2: {
+    category: Category.logisticsBuilding,
+    recipes: [
+      {
+        inputs: { sorterMk1: 2, electricMotor: 1 },
+        outputs: { sorterMk2: 2 },
+        duration: 1,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  sorterMk3: {
+    category: Category.logisticsBuilding,
+    recipes: [
+      {
+        inputs: { sorterMk2: 2, electromagneticTurbine: 1 },
+        outputs: { sorterMk3: 2 },
+        duration: 1,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  splitter: {
+    category: Category.logisticsBuilding,
+    recipes: [
+      {
+        inputs: { ironIngot: 3, gear: 2, circuitBoard: 1 },
+        outputs: { splitter: 1 },
+        duration: 2,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  sprayCoater: {
+    category: Category.logisticsBuilding,
+    recipes: [
+      {
+        inputs: { steel: 4, plasmaExciter: 2, circuitBoard: 2, microcrystallineComponent: 2 },
+        outputs: { sprayCoater: 1 },
+        duration: 3,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  trafficMonitor: {
+    category: Category.logisticsBuilding,
+    recipes: [
+      {
+        inputs: { ironIngot: 3, gear: 1, glass: 1, circuitBoard: 1 },
+        outputs: { trafficMonitor: 1 },
+        duration: 2,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  automaticPiler: {
+    category: Category.logisticsBuilding,
+    recipes: [
+      {
+        inputs: { copperIngot: 3, steel: 1, gear: 1, circuitBoard: 1 },
+        outputs: { automaticPiler: 1 },
+        duration: 4,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  storageMk1: {
+    category: Category.logisticsBuilding,
+    recipes: [
+      {
+        inputs: { ironIngot: 4, stoneBrick: 4 },
+        outputs: { storageMk1: 1 },
+        duration: 2,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  storageMk2: {
+    category: Category.logisticsBuilding,
+    recipes: [
+      {
+        inputs: { steel: 8, stoneBrick: 8 },
+        outputs: { storageMk2: 1 },
+        duration: 4,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  storageTank: {
+    category: Category.logisticsBuilding,
+    recipes: [
+      {
+        inputs: { ironIngot: 8, stoneBrick: 4, glass: 4 },
+        outputs: { storageTank: 1 },
+        duration: 2,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  logisticsDistributor: {
+    category: Category.logisticsBuilding,
+    recipes: [
+      {
+        inputs: { steel: 20, titaniumIngot: 20, processor: 20 },
+        outputs: { logisticsDistributor: 1 },
+        duration: 6,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  planetaryLogisticsStation: {
+    category: Category.logisticsBuilding,
+    recipes: [
+      {
+        inputs: { steel: 40, titaniumIngot: 40, processor: 40, particleContainer: 20 },
+        outputs: { planetaryLogisticsStation: 1 },
+        duration: 20,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  interstellarLogisticsStation: {
+    category: Category.logisticsBuilding,
+    recipes: [
+      {
+        inputs: { planetaryLogisticsStation: 1, titaniumAlloy: 40, particleContainer: 20 },
+        outputs: { interstellarLogisticsStation: 1 },
+        duration: 30,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  orbitalCollector: {
+    category: Category.logisticsBuilding,
+    recipes: [
+      {
+        inputs: { interstellarLogisticsStation: 1, superMagneticRing: 50, reinforcedThruster: 20, accumulator: 8 },
+        outputs: { orbitalCollector: 1 },
+        duration: 30,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
 
   // Category.productionBuilding
 
-  assemblingMachineMk1: { category: Category.productionBuilding, recipes: [] },
-  assemblingMachineMk2: { category: Category.productionBuilding, recipes: [] },
-  assemblingMachineMk3: { category: Category.productionBuilding, recipes: [] },
-  reComposingAssembler: { category: Category.productionBuilding, recipes: [] },
-  arcSmelter: { category: Category.productionBuilding, recipes: [] },
-  planeSmelter: { category: Category.productionBuilding, recipes: [] },
-  negentropySmelter: { category: Category.productionBuilding, recipes: [] },
-  miningMachine: { category: Category.productionBuilding, recipes: [] },
-  advancedMiningMachine: { category: Category.productionBuilding, recipes: [] },
-  oilExtractor: { category: Category.productionBuilding, recipes: [] },
-  oilRefinery: { category: Category.productionBuilding, recipes: [] },
-  chemicalPlant: { category: Category.productionBuilding, recipes: [] },
-  quantumChemicalPlant: { category: Category.productionBuilding, recipes: [] },
-  fractionator: { category: Category.productionBuilding, recipes: [] },
-  miniatureParticleCollider: { category: Category.productionBuilding, recipes: [] },
-  matrixLab: { category: Category.productionBuilding, recipes: [] },
-  emRailEjector: { category: Category.productionBuilding, recipes: [] },
-  verticalLaunchingSilo: { category: Category.productionBuilding, recipes: [] },
+  assemblingMachineMk1: {
+    category: Category.productionBuilding,
+    recipes: [
+      {
+        inputs: { ironIngot: 4, gear: 8, circuitBoard: 4 },
+        outputs: { assemblingMachineMk1: 1 },
+        duration: 2,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  assemblingMachineMk2: {
+    category: Category.productionBuilding,
+    recipes: [
+      {
+        inputs: { assemblingMachineMk1: 1, graphene: 8, processor: 4 },
+        outputs: { assemblingMachineMk2: 1 },
+        duration: 3,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  assemblingMachineMk3: {
+    category: Category.productionBuilding,
+    recipes: [
+      {
+        inputs: { assemblingMachineMk2: 1, particleBroadband: 8, quantumChip: 2 },
+        outputs: { assemblingMachineMk3: 1 },
+        duration: 4,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  reComposingAssembler: {
+    category: Category.productionBuilding,
+    recipes: [
+      {
+        inputs: { assemblingMachineMk3: 1, casimirCrystal: 20, annihilationConstraintSphere: 10, quantumChip: 20 },
+        outputs: { reComposingAssembler: 1 },
+        duration: 8,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  arcSmelter: {
+    category: Category.productionBuilding,
+    recipes: [
+      {
+        inputs: { ironIngot: 4, stone: 2, circuitBoard: 4, magneticCoil: 2 },
+        outputs: { arcSmelter: 1 },
+        duration: 3,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  planeSmelter: {
+    category: Category.productionBuilding,
+    recipes: [
+      {
+        inputs: { arcSmelter: 1, frameMaterial: 5, planeFilter: 4, unipolarMagnet: 15 },
+        outputs: { planeSmelter: 1 },
+        duration: 5,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  negentropySmelter: {
+    category: Category.productionBuilding,
+    recipes: [
+      {
+        inputs: { planeSmelter: 1, negentropySingularity: 10, matterRecombinator: 1 },
+        outputs: { negentropySmelter: 1 },
+        duration: 15,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  miningMachine: {
+    category: Category.productionBuilding,
+    recipes: [
+      {
+        inputs: { ironIngot: 4, circuitBoard: 2, magneticCoil: 2, gear: 2 },
+        outputs: { miningMachine: 1 },
+        duration: 3,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  advancedMiningMachine: {
+    category: Category.productionBuilding,
+    recipes: [
+      {
+        inputs: { miningMachine: 3, steel: 8, crystalSilicon: 4, particleContainer: 4 },
+        outputs: { advancedMiningMachine: 1 },
+        duration: 3,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  oilExtractor: {
+    category: Category.productionBuilding,
+    recipes: [
+      {
+        inputs: { steel: 12, stoneBrick: 12, circuitBoard: 6, plasmaExciter: 4 },
+        outputs: { oilExtractor: 1 },
+        duration: 4,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  oilRefinery: {
+    category: Category.productionBuilding,
+    recipes: [
+      {
+        inputs: { steel: 10, stoneBrick: 10, circuitBoard: 6, plasmaExciter: 6 },
+        outputs: { oilRefinery: 1 },
+        duration: 6,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  chemicalPlant: {
+    category: Category.productionBuilding,
+    recipes: [
+      {
+        inputs: { steel: 8, stoneBrick: 8, glass: 8, circuitBoard: 2 },
+        outputs: { chemicalPlant: 1 },
+        duration: 5,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  quantumChemicalPlant: {
+    category: Category.productionBuilding,
+    recipes: [
+      {
+        inputs: { chemicalPlant: 1, titaniumGlass: 10, processor: 5, quantumChip: 2 },
+        outputs: { quantumChemicalPlant: 1 },
+        duration: 6,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  fractionator: {
+    category: Category.productionBuilding,
+    recipes: [
+      {
+        inputs: { steel: 8, stoneBrick: 4, glass: 4, processor: 1 },
+        outputs: { fractionator: 1 },
+        duration: 3,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  miniatureParticleCollider: {
+    category: Category.productionBuilding,
+    recipes: [
+      {
+        inputs: { copperIngot: 20, prism: 20, electromagneticTurbine: 20, graphene: 10, processor: 8 },
+        outputs: { miniatureParticleCollider: 1 },
+        duration: 15,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  matrixLab: {
+    category: Category.productionBuilding,
+    recipes: [
+      {
+        inputs: { ironIngot: 8, glass: 4, circuitBoard: 4, magneticCoil: 4 },
+        outputs: { matrixLab: 1 },
+        duration: 3,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  emRailEjector: {
+    category: Category.productionBuilding,
+    recipes: [
+      {
+        inputs: { steel: 20, gear: 20, processor: 5, superMagneticRing: 10 },
+        outputs: { emRailEjector: 1 },
+        duration: 6,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  verticalLaunchingSilo: {
+    category: Category.productionBuilding,
+    recipes: [
+      {
+        inputs: { titaniumAlloy: 80, frameMaterial: 30, gravitonLens: 20, quantumChip: 10 },
+        outputs: { verticalLaunchingSilo: 1 },
+        duration: 30,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
 
   // Category.unit
 
-  logisticsBot: { category: Category.unit, recipes: [] },
-  logisticsDrone: { category: Category.unit, recipes: [] },
-  logisticsVessel: { category: Category.unit, recipes: [] },
-  prototype: { category: Category.unit, recipes: [] },
-  precisionDrone: { category: Category.unit, recipes: [] },
-  attackDrone: { category: Category.unit, recipes: [] },
-  corvette: { category: Category.unit, recipes: [] },
-  destroyer: { category: Category.unit, recipes: [] },
+  logisticsBot: {
+    category: Category.unit,
+    recipes: [
+      {
+        inputs: { ironIngot: 2, engine: 1, processor: 1 },
+        outputs: { logisticsBot: 1 },
+        duration: 2,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  logisticsDrone: {
+    category: Category.unit,
+    recipes: [
+      {
+        inputs: { ironIngot: 5, thruster: 2, processor: 2 },
+        outputs: { logisticsDrone: 1 },
+        duration: 4,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  logisticsVessel: {
+    category: Category.unit,
+    recipes: [
+      {
+        inputs: { titaniumAlloy: 10, reinforcedThruster: 2, processor: 10 },
+        outputs: { logisticsDrone: 1 },
+        duration: 6,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  prototype: {
+    category: Category.unit,
+    recipes: [
+      {
+        inputs: { ironIngot: 3, engine: 1, circuitBoard: 2, plasmaExciter: 1 },
+        outputs: { prototype: 1 },
+        duration: 3,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  precisionDrone: {
+    category: Category.unit,
+    recipes: [
+      {
+        inputs: { prototype: 1, electromagneticTurbine: 1, circuitBoard: 2, photonCombiner: 2 },
+        outputs: { precisionDrone: 1 },
+        duration: 4,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  attackDrone: {
+    category: Category.unit,
+    recipes: [
+      {
+        inputs: { prototype: 1, electromagneticTurbine: 1, processor: 1, particleContainer: 1 },
+        outputs: { attackDrone: 1 },
+        duration: 4,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  corvette: {
+    category: Category.unit,
+    recipes: [
+      {
+        inputs: { titaniumAlloy: 5, reinforcedThruster: 1, processor: 2, particleContainer: 3 },
+        outputs: { corvette: 1 },
+        duration: 5,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  destroyer: {
+    category: Category.unit,
+    recipes: [
+      {
+        inputs: { frameMaterial: 20, reinforcedThruster: 4, processor: 4, strangeMatter: 1 },
+        outputs: { destroyer: 1 },
+        duration: 8,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
 
   // Category.fuelRod
 
@@ -779,20 +1395,130 @@ const recipeList: RecipeList = {
 
   // Category.defensiveBuilding
 
-  gaussTurret: { category: Category.defensiveBuilding, recipes: [] },
-  missileTurret: { category: Category.defensiveBuilding, recipes: [] },
-  implosionCannon: { category: Category.defensiveBuilding, recipes: [] },
-  laserTurret: { category: Category.defensiveBuilding, recipes: [] },
-  plasmaTurret: { category: Category.defensiveBuilding, recipes: [] },
-  battlefieldAnalysisBase: { category: Category.defensiveBuilding, recipes: [] },
-  signalTower: { category: Category.defensiveBuilding, recipes: [] },
-  planetaryShieldGenerator: { category: Category.defensiveBuilding, recipes: [] },
+  gaussTurret: {
+    category: Category.defensiveBuilding,
+    recipes: [
+      {
+        inputs: { steel: 6, gear: 3, circuitBoard: 2, magneticCoil: 6 },
+        outputs: { gaussTurret: 1 },
+        duration: 5,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  missileTurret: {
+    category: Category.defensiveBuilding,
+    recipes: [
+      {
+        inputs: { steel: 6, gear: 3, circuitBoard: 3, electricMotor: 3 },
+        outputs: { missileTurret: 1 },
+        duration: 5,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  implosionCannon: {
+    category: Category.defensiveBuilding,
+    recipes: [
+      {
+        inputs: { steel: 6, superMagneticRing: 4, processor: 3, gravitonLens: 1 },
+        outputs: { implosionCannon: 1 },
+        duration: 8,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  laserTurret: {
+    category: Category.defensiveBuilding,
+    recipes: [
+      {
+        inputs: { steel: 8, circuitBoard: 4, photonCombiner: 4, processor: 2 },
+        outputs: { laserTurret: 1 },
+        duration: 6,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  plasmaTurret: {
+    category: Category.defensiveBuilding,
+    recipes: [
+      {
+        inputs: { laserTurret: 1, magneticCoil: 15, processor: 5, plasmaExciter: 10 },
+        outputs: { plasmaTurret: 1 },
+        duration: 10,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  battlefieldAnalysisBase: {
+    category: Category.defensiveBuilding,
+    recipes: [
+      {
+        inputs: { steel: 20, titaniumAlloy: 10, processor: 15, particleContainer: 10 },
+        outputs: { battlefieldAnalysisBase: 1 },
+        duration: 10,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  signalTower: {
+    category: Category.defensiveBuilding,
+    recipes: [
+      {
+        inputs: { wirelessPowerTower: 2, steel: 12, crystalSilicon: 6 },
+        outputs: { signalTower: 1 },
+        duration: 6,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  planetaryShieldGenerator: {
+    category: Category.defensiveBuilding,
+    recipes: [
+      {
+        inputs: { steel: 20, titaniumAlloy: 20, processor: 20, particleContainer: 10 },
+        outputs: { planetaryShieldGenerator: 1 },
+        duration: 12,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
 
   // Category.munition
 
-  magnumAmmoBox: { category: Category.munition, recipes: [] },
-  titaniumAmmoBox: { category: Category.munition, recipes: [] },
-  superalloyAmmoBox: { category: Category.munition, recipes: [] },
+  magnumAmmoBox: {
+    category: Category.munition,
+    recipes: [
+      {
+        inputs: { copperIngot: 3 },
+        outputs: { magnumAmmoBox: 1 },
+        duration: 1,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  titaniumAmmoBox: {
+    category: Category.munition,
+    recipes: [
+      {
+        inputs: { magnumAmmoBox: 1, titaniumIngot: 2 },
+        outputs: { titaniumAmmoBox: 1 },
+        duration: 2,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  superalloyAmmoBox: {
+    category: Category.munition,
+    recipes: [
+      {
+        inputs: { titaniumAmmoBox: 1, titaniumAlloy: 1 },
+        outputs: { superalloyAmmoBox: 1 },
+        duration: 3,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
   missileSet: {
     category: Category.munition,
     recipes: [
@@ -826,11 +1552,61 @@ const recipeList: RecipeList = {
       },
     ],
   },
-  shellSet: { category: Category.munition, recipes: [] },
-  highExplosiveShellSet: { category: Category.munition, recipes: [] },
-  crystalShellSet: { category: Category.munition, recipes: [] },
-  plasmaCapsule: { category: Category.munition, recipes: [] },
-  antimatterCapsule: { category: Category.munition, recipes: [] },
+  shellSet: {
+    category: Category.munition,
+    recipes: [
+      {
+        inputs: { copperIngot: 9, combustibleUnit: 2 },
+        outputs: { shellSet: 1 },
+        duration: 1.5,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  highExplosiveShellSet: {
+    category: Category.munition,
+    recipes: [
+      {
+        inputs: { shellSet: 1, titaniumIngot: 6, explosiveUnit: 2 },
+        outputs: { highExplosiveShellSet: 1 },
+        duration: 3,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  crystalShellSet: {
+    category: Category.munition,
+    recipes: [
+      {
+        inputs: { highExplosiveShellSet: 1, titaniumAlloy: 3, crystalExplosiveUnit: 2 },
+        outputs: { crystalShellSet: 1 },
+        duration: 6,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  plasmaCapsule: {
+    category: Category.munition,
+    recipes: [
+      {
+        inputs: { graphene: 1, magnet: 2, deuterium: 10 },
+        outputs: { plasmaCapsule: 1 },
+        duration: 2,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
+  antimatterCapsule: {
+    category: Category.munition,
+    recipes: [
+      {
+        inputs: { plasmaCapsule: 1, particleContainer: 1, hydrogen: 10, antimatter: 10 },
+        outputs: { antimatterCapsule: 1 },
+        duration: 2,
+        manufacturingType: 'assembling',
+      },
+    ],
+  },
 
   // Category.darkFog
 
