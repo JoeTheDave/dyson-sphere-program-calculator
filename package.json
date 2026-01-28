@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "repository": {
+    "url": "https://github.com/JoeTheDave/dyson-sphere-program-calculator.git"
+  },
   "scripts": {
     "tailwind": "npx tailwindcss -i ./src/styles/index.css -o ./src/styles/tailwind.css",
     "build": "run-s \"build:*\"",
@@ -14,7 +17,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "load-data": "tsx ./scripts/load-application-artifacts.ts",
-    "prettier": "npx prettier --write ."
+    "prettier": "npx prettier --write .",
+    "deploy": "fly deploy"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",

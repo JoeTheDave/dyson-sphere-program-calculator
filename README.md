@@ -1,30 +1,101 @@
-# React + TypeScript + Vite
+# Dyson Sphere Program Calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A production calculator for the game Dyson Sphere Program. This web application helps players calculate resource requirements and production chains for crafting items in the game.
 
-Currently, two official plugins are available:
+## Production URL
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+https://dyson-sphere-program-calculator.fly.dev/
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React** - UI framework
+- **TypeScript** - Type-safe development
+- **Vite** - Fast build tool and dev server
+- **React Router** - Client-side routing
+- **Tailwind CSS** - Utility-first styling
+- **DaisyUI** - Component library
+- **Nginx** - Production web server
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+1. Install dependencies:
+
+```bash
+npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Start the development server:
+
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:5173`
+
+## Deployment
+
+This project is configured for deployment to [fly.io](https://fly.io).
+
+### First Time Setup
+
+1. Install flyctl:
+
+```bash
+curl -L https://fly.io/install.sh | sh
+```
+
+2. Login to fly.io:
+
+```bash
+fly auth login
+```
+
+3. Launch your app (this creates it on fly.io):
+
+```bash
+fly launch --no-deploy
+```
+
+4. Deploy:
+
+```bash
+npm run deploy
+```
+
+### Deployment Configuration
+
+The deployment uses:
+
+- **Dockerfile**: Multi-stage build with Node.js (build) and Nginx (serve)
+- **nginx.conf**: Configured for SPA routing and static asset caching
+- **fly.toml**: Auto-scaling configuration with minimal resources (256MB RAM)
+- Auto-start and auto-stop machines to minimize costs
+
+You can customize the app name and region in `fly.toml`:
+
+- `app`: Your fly.io app name
+- `primary_region`: Region code (e.g., "iad" for US East, "sjc" for US West, "lhr" for London)
+
+## Project Structure
+
+```
+├── public/              # Static assets
+├── src/
+│   ├── assets/         # Images and HTML data
+│   ├── components/     # React components
+│   ├── lib/            # Utilities, types, and data
+│   ├── styles/         # CSS files
+│   └── main.tsx        # Entry point
+├── scripts/            # Build and data loading scripts
+├── Dockerfile          # Docker configuration for deployment
+├── nginx.conf          # Nginx configuration for production
+└── fly.toml            # Fly.io deployment configuration
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the MIT License.
