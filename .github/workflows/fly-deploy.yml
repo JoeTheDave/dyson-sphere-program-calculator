@@ -19,8 +19,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Verify native Tailwind binding (fallback for lockfile drift)
-        run: node -e "require('@tailwindcss/oxide-linux-x64-gnu')" || npm install @tailwindcss/oxide
+      - name: Ensure oxide native binding
+        run: npm install --no-save @tailwindcss/oxide-linux-x64-gnu@$(node -p "require('./node_modules/@tailwindcss/oxide/package.json').version")
 
       - name: Build
         run: npm run build
