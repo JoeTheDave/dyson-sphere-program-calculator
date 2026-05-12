@@ -34,6 +34,12 @@ jobs:
       - name: Verify oxide native binding loads
         run: node -e "require('@tailwindcss/oxide'); console.log('oxide ok')"
 
+      - name: Ensure rolldown native binding
+        run: npm install --no-save @rolldown/binding-linux-x64-gnu@$(node -p "require('./node_modules/rolldown/package.json').version")
+
+      - name: Verify rolldown native binding loads
+        run: node -e "require('@rolldown/binding-linux-x64-gnu'); console.log('rolldown ok')"
+
       - name: Build
         run: npm run build
 
