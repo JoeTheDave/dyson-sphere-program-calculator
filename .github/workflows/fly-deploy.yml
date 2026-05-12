@@ -15,12 +15,24 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
+      - name: Report runtime versions
+        run: |
+          node --version
+          npm --version
+          node -p "'vitest ' + require('./node_modules/vitest/package.json').version"
+          node -p "'rolldown ' + (() => { try { return require('./node_modules/rolldown/package.json').version } catch { return 'not installed' } })()"
+          node -p "'@tailwindcss/oxide ' + require('./node_modules/@tailwindcss/oxide/package.json').version"
+
       - name: Ensure oxide native binding
         run: npm install --no-save @tailwindcss/oxide-linux-x64-gnu@$(node -p "require('./node_modules/@tailwindcss/oxide/package.json').version")
+
+      - name: Verify oxide native binding loads
+        run: node -e "require('@tailwindcss/oxide'); console.log('oxide ok')"
 
       - name: Build
         run: npm run build
