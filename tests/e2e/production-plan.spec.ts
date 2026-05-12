@@ -4,8 +4,8 @@ test.describe('production plan flow', () => {
   test('home page displays item categories and items', async ({ page }) => {
     await page.goto('/')
     // The home page renders category headings and item links
-    await expect(page.getByText('Element')).toBeVisible()
-    await expect(page.getByText('Component')).toBeVisible()
+    await expect(page.getByText('Element', { exact: true })).toBeVisible()
+    await expect(page.getByText('Component', { exact: true })).toBeVisible()
     // Iron Ore should appear as a link on the home page
     const ironOreLink = page.getByRole('link', { name: /iron ore/i })
     await expect(ironOreLink.first()).toBeVisible()
@@ -13,8 +13,8 @@ test.describe('production plan flow', () => {
 
   test('navigating to iron ingot recipe page shows the item name and a machine count input', async ({ page }) => {
     await page.goto('/recipe/iron-ingot')
-    // Item heading
-    await expect(page.getByText('Iron Ingot')).toBeVisible()
+    // Item heading (text appears in both the page heading and a recipe card)
+    await expect(page.getByText('Iron Ingot').first()).toBeVisible()
     // There should be a numeric input for machine count
     const machineInput = page.locator('input[type="number"]')
     await expect(machineInput).toBeVisible()
@@ -46,7 +46,7 @@ test.describe('production plan flow', () => {
   test('production plan for a complex item shows multiple recipe cards', async ({ page }) => {
     // Magnetic Coil requires Magnet and Copper Ingot, which require Iron Ore and Copper Ore
     await page.goto('/recipe/magnetic-coil')
-    await expect(page.getByText('Magnetic Coil')).toBeVisible()
+    await expect(page.getByText('Magnetic Coil').first()).toBeVisible()
 
     // Multiple recipe cards should be rendered (Magnetic Coil, Magnet, Copper Ingot, etc.)
     const productionCards = page.locator('.bg-slate-800')
@@ -58,7 +58,7 @@ test.describe('production plan flow', () => {
     // Diamond has 2 recipes — the RecipeCalculationCard renders a toggle
     // when itemInfo.recipes.length > 1 (the HiCubeTransparent icon button)
     await page.goto('/recipe/diamond')
-    await expect(page.getByText('Diamond')).toBeVisible()
+    await expect(page.getByText('Diamond').first()).toBeVisible()
 
     // The toggle is a small round button containing the swap icon
     // It is rendered with a specific class set only when recipes.length > 1
@@ -68,7 +68,7 @@ test.describe('production plan flow', () => {
 
   test('clicking alternate recipe toggle switches the displayed recipe', async ({ page }) => {
     await page.goto('/recipe/diamond')
-    await expect(page.getByText('Diamond')).toBeVisible()
+    await expect(page.getByText('Diamond').first()).toBeVisible()
 
     // Before toggle: recipe 0 uses Energetic Graphite
     // After toggle: recipe 1 uses Kimberlite Ore
@@ -79,7 +79,7 @@ test.describe('production plan flow', () => {
     await toggleBtn.click()
 
     // After toggling, the page should still show Diamond
-    await expect(page.getByText('Diamond')).toBeVisible()
+    await expect(page.getByText('Diamond').first()).toBeVisible()
     // The toggle button remains present
     await expect(toggleBtn).toBeVisible()
   })
@@ -92,7 +92,7 @@ test.describe('production plan flow', () => {
 
     // Should navigate to /recipe/gear
     await expect(page).toHaveURL(/\/recipe\/gear/)
-    await expect(page.getByText('Gear')).toBeVisible()
+    await expect(page.getByText('Gear').first()).toBeVisible()
   })
 
   test('production speed selectors are visible on recipe page', async ({ page }) => {
