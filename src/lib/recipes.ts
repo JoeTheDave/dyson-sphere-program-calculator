@@ -1294,7 +1294,7 @@ const recipeList: RecipeList = {
     recipes: [
       {
         inputs: { titaniumAlloy: 10, reinforcedThruster: 2, processor: 10 },
-        outputs: { logisticsDrone: 1 },
+        outputs: { logisticsVessel: 1 },
         duration: 6,
         manufacturingType: 'assembling',
       },

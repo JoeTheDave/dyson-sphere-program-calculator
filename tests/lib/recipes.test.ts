@@ -117,15 +117,8 @@ describe('recipes data integrity', () => {
 
     it('every item with recipes appears as its own recipe output', () => {
       // Items with empty recipes are raw materials — skip them.
-      //
-      // Known data anomaly: 'logisticsVessel' has a recipe whose output is
-      // 'logisticsDrone'. This appears to be a copy-paste error in recipes.ts,
-      // but fixing the data is out of scope here. We skip known exceptions and
-      // document them so they show up as test failures if new anomalies appear.
-      const knownExceptions = new Set<string>(['logisticsVessel'])
       const violations: string[] = []
       recipeKeys.forEach(itemKey => {
-        if (knownExceptions.has(itemKey)) return
         const item = recipeList[itemKey]
         if (!item || item.recipes.length === 0) return
         const selfProduced = item.recipes.some(recipe =>
@@ -138,14 +131,11 @@ describe('recipes data integrity', () => {
       expect(violations, violations.join('\n')).toHaveLength(0)
     })
 
-    it('documents known data anomaly: logisticsVessel recipe produces logisticsDrone', () => {
-      // This test documents the existing recipes.ts data error where the
-      // logisticsVessel entry has a recipe that outputs logisticsDrone.
+    it('logisticsVessel recipe produces logisticsVessel', () => {
       const item = recipeList['logisticsVessel']
       expect(item?.recipes).toHaveLength(1)
       const outputKeys = Object.keys(item!.recipes[0].outputs)
-      expect(outputKeys).toContain('logisticsDrone')
-      expect(outputKeys).not.toContain('logisticsVessel')
+      expect(outputKeys).toContain('logisticsVessel')
     })
   })
 
